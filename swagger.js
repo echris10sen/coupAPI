@@ -5,7 +5,7 @@ const doc = {
     title: 'My API',
     description: 'This API is used to connect to a MongoDB Database and perform CRUD operations on a collection.'
   },
-  host: 'localhost:5000',
+  host: 'https://coup-api.onrender.com',
   definitions: {
     player: 
     { 
