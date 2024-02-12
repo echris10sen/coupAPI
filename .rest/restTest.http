@@ -1,0 +1,53 @@
+@hostname = https://jazz-api.onrender.com
+@localhost = http://localhost:5000
+get {{localhost}}
+
+
+# **************************************************************
+# * Localhost API
+# **************************************************************
+###
+# Get all players
+get {{localhost}}/players
+
+###
+# Get player by id
+get {{localhost}}/players/?id=65c813684e38628ef82a716e
+
+###
+# Add new player
+post {{localhost}}/players
+Content-Type: application/json
+
+{
+  "user_name": "creativeName",
+  "is_online": false,
+  "in_game": false,
+  "email": "email1@email.com",
+  "first_name": "Howard",
+  "last_login": "2021-08-10T00:00:00.000Z",
+  "last_name": "Johnson",
+  "games_played": 0,
+  "games_won": 0
+}
+
+###
+# Update player
+put {{localhost}}/players/?id=65caa0e429aede43300da6af
+Content-Type: application/json
+
+{
+  "user_name": "admiralEdits",
+  "is_online": false,
+  "in_game": false,
+  "email": "email2@email.com",
+  "first_name": "Derek",
+  "last_login": "2021-08-10T00:00:00.000Z",
+  "last_name": "Jeter",
+  "games_played": 0,
+  "games_won": 0
+}
+
+###
+# Delete player
+delete {{localhost}}/players/?id=65caa0e429aede43300da6af

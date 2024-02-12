@@ -1,0 +1,164 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "description": "This API is used to connect to a MongoDB Database and perform CRUD operations on a collection.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/players/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "By default no ID will result in all players. If ID is provided, only that player will be returned",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Player object to be created",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Player"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID of the player to be updated",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Player object to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Player"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID of the player to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "player": {
+      "type": "object",
+      "properties": {
+        "user_name": {
+          "type": "string",
+          "example": "username"
+        },
+        "is_online": {
+          "type": "boolean",
+          "example": false
+        },
+        "in_game": {
+          "type": "boolean",
+          "example": false
+        },
+        "email": {
+          "type": "string",
+          "example": "email@email.com"
+        },
+        "first_name": {
+          "type": "string",
+          "example": "First Name"
+        },
+        "last_name": {
+          "type": "string",
+          "example": "Last Name"
+        },
+        "last_login": {
+          "type": "string",
+          "example": "YYYY-MM-DD"
+        },
+        "games_played": {
+          "type": "number",
+          "example": 0
+        },
+        "games_won": {
+          "type": "number",
+          "example": 0
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "name_of_card"
+        },
+        "effect": {
+          "type": "string",
+          "example": "action_description"
+        },
+        "action": {
+          "type": "string",
+          "example": "action"
+        },
+        "influence": {
+          "type": "boolean",
+          "example": true
+        },
+        "counter_action": {
+          "type": "string",
+          "example": "counter_action"
+        }
+      }
+    }
+  }
+}
