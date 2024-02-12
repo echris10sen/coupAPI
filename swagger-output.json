@@ -5,9 +5,10 @@
     "description": "This API is used to connect to a MongoDB Database and perform CRUD operations on a collection.",
     "version": "1.0.0"
   },
-  "host": "https://coup-api.onrender.com",
+  "host": "coup-api.onrender.com",
   "basePath": "/",
   "schemes": [
+    "https",
     "http"
   ],
   "paths": {
