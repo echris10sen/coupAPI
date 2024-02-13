@@ -15,26 +15,28 @@ const doc = {
       description: "Development server"
     }
   ],
-  definitions: {
-    Player: 
-    { 
-        user_name: "username",
-        is_online: false,
-        in_game: false,
-        email: "email@email.com",
-        first_name: "first_name",
-        last_name: "last_name",
-        last_login: "YYYY-MM-DD",
-        games_played: 0,
-        games_won: 0
-    },
-    Card:
-    {
-        name: "name_of_card",
-        effect: "action_description",
-        action: "action",
-        influence: true,
-        counter_action: "counter_action"
+  components: {
+    schemas: {
+      Player: 
+      { 
+          user_name: "username",
+          is_online: false,
+          in_game: false,
+          email: "email@email.com",
+          first_name: "first_name",
+          last_name: "last_name",
+          last_login: "YYYY-MM-DD",
+          games_played: 0,
+          games_won: 0
+      },
+      Card:
+      {
+          name: "name_of_card",
+          effect: "action_description",
+          action: "action",
+          influence: true,
+          counter_action: "counter_action"
+      }
     }
   },
 };

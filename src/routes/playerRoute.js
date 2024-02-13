@@ -18,11 +18,14 @@ router.get('/', utils.handleErrors((req, res, next) => {
     }
 }));
 router.post('/', utils.handleErrors((req, res, next) => {
-    /* #swagger.parameters['body'] = {
-        in: 'body',
+    /* #swagger.requestBody = {
         description: 'Player object to be created',
         required: true,
-        schema: { $ref: "#/definitions/Player" }
+        content: {
+            'application/json': {
+                schema: { $ref: "#/components/schemas/Player" }
+            }
+        }
     } */
     playersController.createPlayer(req, res, next);
 }));
@@ -34,11 +37,14 @@ router.put('/', utils.handleErrors((req, res, next) => {
         required: true,
         type: 'string'
     } */
-    /* #swagger.parameters['body'] = {
-        in: 'body',
+    /* #swagger.requestBody = {
         description: 'Player object to be updated',
         required: true,
-        schema: { $ref: "#/definitions/Player" }
+        content: {
+            'application/json': {
+                schema: { $ref: "#/components/schemas/Player" }
+            }
+        }
     } */
     playersController.updatePlayer(req, res, next);
 }));

@@ -38,20 +38,20 @@
       },
       "post": {
         "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Player object to be created",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Player"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
+          }
+        },
+        "requestBody": {
+          "description": "Player object to be created",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Player"
+              }
+            }
           }
         }
       },
@@ -66,20 +66,22 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Player object to be updated",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Player"
-            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          }
+        },
+        "requestBody": {
+          "description": "Player object to be updated",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Player"
+              }
+            }
           }
         }
       },
