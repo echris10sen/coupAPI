@@ -1,15 +1,19 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.0",
   "info": {
     "title": "My API",
     "description": "This API is used to connect to a MongoDB Database and perform CRUD operations on a collection.",
     "version": "1.0.0"
   },
-  "host": "coup-api.onrender.com",
-  "basePath": "/",
-  "schemes": [
-    "https",
-    "http"
+  "servers": [
+    {
+      "url": "https://coup-api.onrender.com",
+      "description": "Production server"
+    },
+    {
+      "url": "http://localhost:5000",
+      "description": "Development server"
+    }
   ],
   "paths": {
     "/players/": {
@@ -21,7 +25,9 @@
             "in": "query",
             "description": "By default no ID will result in all players. If ID is provided, only that player will be returned",
             "required": false,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -39,7 +45,7 @@
             "description": "Player object to be created",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Player"
+              "$ref": "#/components/schemas/Player"
             }
           }
         ],
@@ -57,7 +63,9 @@
             "in": "query",
             "description": "ID of the player to be updated",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "body",
@@ -65,7 +73,7 @@
             "description": "Player object to be updated",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Player"
+              "$ref": "#/components/schemas/Player"
             }
           }
         ],
@@ -83,7 +91,9 @@
             "in": "query",
             "description": "ID of the player to be deleted",
             "required": true,
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -94,70 +104,72 @@
       }
     }
   },
-  "definitions": {
-    "player": {
-      "type": "object",
-      "properties": {
-        "user_name": {
-          "type": "string",
-          "example": "username"
-        },
-        "is_online": {
-          "type": "boolean",
-          "example": false
-        },
-        "in_game": {
-          "type": "boolean",
-          "example": false
-        },
-        "email": {
-          "type": "string",
-          "example": "email@email.com"
-        },
-        "first_name": {
-          "type": "string",
-          "example": "First Name"
-        },
-        "last_name": {
-          "type": "string",
-          "example": "Last Name"
-        },
-        "last_login": {
-          "type": "string",
-          "example": "YYYY-MM-DD"
-        },
-        "games_played": {
-          "type": "number",
-          "example": 0
-        },
-        "games_won": {
-          "type": "number",
-          "example": 0
+  "components": {
+    "schemas": {
+      "Player": {
+        "type": "object",
+        "properties": {
+          "user_name": {
+            "type": "string",
+            "example": "username"
+          },
+          "is_online": {
+            "type": "boolean",
+            "example": false
+          },
+          "in_game": {
+            "type": "boolean",
+            "example": false
+          },
+          "email": {
+            "type": "string",
+            "example": "email@email.com"
+          },
+          "first_name": {
+            "type": "string",
+            "example": "first_name"
+          },
+          "last_name": {
+            "type": "string",
+            "example": "last_name"
+          },
+          "last_login": {
+            "type": "string",
+            "example": "YYYY-MM-DD"
+          },
+          "games_played": {
+            "type": "number",
+            "example": 0
+          },
+          "games_won": {
+            "type": "number",
+            "example": 0
+          }
         }
-      }
-    },
-    "card": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "example": "name_of_card"
-        },
-        "effect": {
-          "type": "string",
-          "example": "action_description"
-        },
-        "action": {
-          "type": "string",
-          "example": "action"
-        },
-        "influence": {
-          "type": "boolean",
-          "example": true
-        },
-        "counter_action": {
-          "type": "string",
-          "example": "counter_action"
+      },
+      "Card": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "name_of_card"
+          },
+          "effect": {
+            "type": "string",
+            "example": "action_description"
+          },
+          "action": {
+            "type": "string",
+            "example": "action"
+          },
+          "influence": {
+            "type": "boolean",
+            "example": true
+          },
+          "counter_action": {
+            "type": "string",
+            "example": "counter_action"
+          }
         }
       }
     }
