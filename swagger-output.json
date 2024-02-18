@@ -32,7 +32,25 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Player(s) found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Player not found"
+          },
+          "500": {
+            "description": "Server Error"
           }
         }
       },
@@ -41,6 +59,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Server Error"
           }
         },
         "requestBody": {
@@ -71,6 +95,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Server Error"
           }
         },
         "requestBody": {
@@ -101,6 +131,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Server Error"
           }
         }
       }
@@ -147,6 +180,9 @@
             "type": "number",
             "example": 0
           }
+        },
+        "xml": {
+          "name": "Player"
         }
       },
       "Card": {
@@ -172,6 +208,9 @@
             "type": "string",
             "example": "counter_action"
           }
+        },
+        "xml": {
+          "name": "Card"
         }
       }
     }

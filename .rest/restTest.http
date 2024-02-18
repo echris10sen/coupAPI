@@ -24,7 +24,7 @@ Content-Type: application/json
   "is_online": false,
   "in_game": false,
   "email": "email1@email.com",
-  "first_name": "Howard",
+  "first_name": "Dave",
   "last_login": "2021-08-10T00:00:00.000Z",
   "last_name": "Johnson",
   "games_played": 0,
